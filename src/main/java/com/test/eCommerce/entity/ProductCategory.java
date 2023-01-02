@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "PRODUCT_CATEGORY")
 @Entity
-public class ProductCategory implements Serializable {
+public class ProductCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -27,6 +27,6 @@ public class ProductCategory implements Serializable {
     @Column
     private String code;
 
-    @OneToMany(mappedBy = "productCategory" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "productCategory", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Product> products;
 }

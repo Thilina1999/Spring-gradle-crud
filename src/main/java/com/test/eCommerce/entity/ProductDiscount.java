@@ -1,5 +1,6 @@
 package com.test.eCommerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "PRODUCT_DISCOUNT")
 @Entity
+@JsonIdentityInfo(generator = com.fasterxml.jackson.annotation.ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class ProductDiscount {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

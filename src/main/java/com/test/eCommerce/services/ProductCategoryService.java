@@ -60,9 +60,7 @@ public class ProductCategoryService {
         if (productCategory == null) {
             return new ResponseEntity<>(new Message("Product Category not found", HttpStatus.NOT_FOUND), HttpStatus.OK);
         }
-//        if (productRepository.findAllByProductCategory_Id(id).size() > 0) {
-//            return new ResponseEntity<>(new Message("Product Category is already in use Cannot Delete", HttpStatus.BAD_REQUEST), HttpStatus.OK);
-//        }
+
         productCategoryRepository.delete(productCategory);
         return new ResponseEntity<>(new Message("Product Category deleted successfully", HttpStatus.OK, productCategory), HttpStatus.OK);
     }

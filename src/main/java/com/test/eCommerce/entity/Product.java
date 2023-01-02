@@ -1,13 +1,12 @@
 package com.test.eCommerce.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -16,7 +15,8 @@ import java.util.Set;
 @Entity
 @Table(name = "PRODUCT")
 @NoArgsConstructor
-public class Product implements Serializable {
+@JsonIdentityInfo(generator = com.fasterxml.jackson.annotation.ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -32,7 +32,7 @@ public class Product implements Serializable {
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<ProductDiscount> productDiscounts;
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "categoryId", referencedColumnName = "id")
     private ProductCategory productCategory;
