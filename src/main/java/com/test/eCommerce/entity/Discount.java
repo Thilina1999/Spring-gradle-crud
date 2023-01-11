@@ -1,5 +1,6 @@
 package com.test.eCommerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +26,7 @@ public class Discount {
 
     @Column(name = "type")
     private String type;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "discount")
     private Set<ProductDiscount> productDiscounts;
 

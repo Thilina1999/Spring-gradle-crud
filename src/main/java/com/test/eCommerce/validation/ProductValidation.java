@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductValidation {
+
     public ResponseEntity<Message> checkProduct(Product product, ProductRepository productRepository) {
         if (product.getCode().isEmpty() || product.getName().isEmpty()) {
             return new ResponseEntity<>(new Message("Please fill Promo Code field", HttpStatus.BAD_REQUEST), HttpStatus.OK);

@@ -18,7 +18,7 @@ public class DiscountController {
 
     @GetMapping("/get/allDiscounts")
     private List<Discount> getAllDiscount() {
-        return discountService.findAllProductCategories();
+        return discountService.findAllDiscount();
     }
 
     @GetMapping("/get/discountById/{id}")
@@ -35,6 +35,7 @@ public class DiscountController {
     private ResponseEntity<Message> updateDiscount(@PathVariable("id") int id, @RequestBody Discount discount) {
         return discountService.updateDiscount(id, discount);
     }
+
     @DeleteMapping("/delete/discount/{id}")
     private ResponseEntity<Message> deleteDiscount(@PathVariable("id") int id) {
         return discountService.deleteDiscount(id);

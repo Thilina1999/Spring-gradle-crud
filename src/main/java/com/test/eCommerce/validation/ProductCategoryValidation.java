@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductCategoryValidation {
+
     public ResponseEntity<Message> checkProductCategory(ProductCategory productCategory, ProductCategoryRepository productCategoryRepository) {
         if (productCategory.getCode().isEmpty() || productCategory.getName().isEmpty()) {
             return new ResponseEntity<>(new Message("Please fill all the fields", HttpStatus.BAD_REQUEST), HttpStatus.OK);

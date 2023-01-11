@@ -4,10 +4,8 @@ import org.springframework.http.HttpStatus;
 
 public class Message {
 
-
     private String message;
     private HttpStatus status;
-
     private Object object;
 
     public Message(String message, HttpStatus status) {

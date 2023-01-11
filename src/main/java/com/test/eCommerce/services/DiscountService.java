@@ -19,7 +19,7 @@ public class DiscountService {
     @Autowired
     private DiscountValidation discountValidation;
 
-    public List<Discount> findAllProductCategories() {
+    public List<Discount> findAllDiscount() {
         return discountRepository.findAll();
     }
 

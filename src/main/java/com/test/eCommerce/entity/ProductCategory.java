@@ -1,5 +1,6 @@
 package com.test.eCommerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class ProductCategory {
     @Column
     private String code;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "productCategory", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Product> products;
 }
